@@ -86,6 +86,7 @@ class Billing_System:
         
     #calculating the discount
     def discount(self):
+        print("discount")
             
             
             
