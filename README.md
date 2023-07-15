@@ -21,15 +21,18 @@ To run this billing system on your local machine, follow these steps:
 2. Navigate to the project directory:
 
 shell
+
 `cd billing-system`
 
 3. Run the Python script:
 
 shell
+
 `python billing_system.py`
 Follow the instructions on the command line interface to enter cashier and customer names, add items to the bill, and view the final bill.
 
 #Usage
+
 i.   Run the script `billing_system.py.`
 
 ii.  Enter the cashier name and customer name when prompted.
@@ -42,8 +45,10 @@ v.   The script will display the final bill with item details, total quantity, a
 
 vi.  The program will then thank the customer and prompt for the next action.
 
+
 #Contributing
 Contributions are welcome! If you find any issues or want to enhance this billing system, feel free to submit a pull request.
+
 
 #License
 This project is licensed under the `MIT License`.
