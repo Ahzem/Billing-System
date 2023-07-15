@@ -94,11 +94,6 @@ class Billing_System:
         
     #calculating the discount
     def discount(self):
-        if self.total>=5000:
-            self.discount=self.total*0.05
-            self.discount=round(self.discount,2)
-            
-            print("Discount: ",self.discount)
             
             
             
