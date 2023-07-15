@@ -31,7 +31,7 @@ shell
 `python billing_system.py`
 Follow the instructions on the command line interface to enter cashier and customer names, add items to the bill, and view the final bill.
 
-#Usage
+# Usage
 
 i.   Run the script `billing_system.py.`
 
@@ -46,9 +46,11 @@ v.   The script will display the final bill with item details, total quantity, a
 vi.  The program will then thank the customer and prompt for the next action.
 
 
-#Contributing
+# Contributing
+
 Contributions are welcome! If you find any issues or want to enhance this billing system, feel free to submit a pull request.
 
 
-#License
+# License
+
 This project is licensed under the `MIT License`.
