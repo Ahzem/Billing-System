@@ -62,7 +62,7 @@ class Billing_System:
                 
     #displaying the bill
     def display_bill(self):
-        print("Item Name".ljust(30),"Quantity".ljust(15),"Price".ljust(15),"Total".ljust(15)) #printing the headings
+        print("Item Name".ljust(30),"Quantity".ljust(15),"Price".ljust(15),"Total".ljust(15))
         
         for item,quantity,price,total in zip(self.item_list, self.quantity_list, self.price_list, self.total_price_list): #using for loop to print the items
             align1=item.ljust(30)
@@ -85,7 +85,7 @@ class Billing_System:
         
         
     #calculating the discount
-    
+    def discount(self):
             
             
             
