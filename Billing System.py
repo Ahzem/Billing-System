@@ -92,7 +92,7 @@ class Billing_System:
 
     #calculating the discount
     def discount(self):
-        self.add_discount=input("Do you want to add discount? (Y/N): ") #asking the user to add discount
+        self.add_discount=input("Do you want to add discount for total bill? (Y/N): ") #asking the user to add discount
         self.add_discount=self.add_discount.upper() #converting the input to uppercase
         if self.add_discount == "Y": 
             self.discount_percentage=float(input("Enter Discount Percentage: ")) #asking the user to enter the discount percentage
