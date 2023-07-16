@@ -1,7 +1,6 @@
 #importing modules
 from datetime import date
 
-
 #main class
 class Billing_System:
 
@@ -36,8 +35,9 @@ class Billing_System:
         self.item_list=[] #creating an empty list for items
         self.quantity_list=[] #creating an empty list for quantity
         self.price_list=[] #creating an empty list for price
-        self.total_price=0 #creating an empty list for total price
+        self.total_bill_price=0 #creating an empty list for total price
         self.total_quantity=0 #creating an empty list for total quantity
+        
         
     #asking the user to add more items        
     def Addmore(self):
@@ -62,31 +62,47 @@ class Billing_System:
                 
     #displaying the bill
     def display_bill(self):
-        print("Item Name".ljust(30),"Quantity".ljust(15),"Price".ljust(15),"Total".ljust(15))
+        print("Item Name".ljust(30),"Quantity".ljust(15),"Price".ljust(15),"Total".ljust(15)) #printing the headings
         
         for item,quantity,price,total in zip(self.item_list, self.quantity_list, self.price_list, self.total_price_list): #using for loop to print the items
-            align1=item.ljust(30)
-            align2=str(quantity).ljust(15)
-            align3=str(price).ljust(15)
+            align1=item.ljust(33)
+            align2=str(quantity).ljust(12)
+            align3=str(price).ljust(12)
             align4=str(total).ljust(15)
             print(align1,align2,align3,align4)
             
         print((75*"-").center(75))
         
+        self.total_bill_price= sum(self.total_price_list) #calculating the total price
+        self.total_bill_price=round(self.total_bill_price,2) #rounding the total price to 2 decimal places
         self.total_quantity= sum(self.quantity_list) #calculating the total quantity
-        print("Total Quantity: ",self.total_quantity,"Items") #printing the total quantity
         
-        self.total_price= sum(self.price_list) #calculating the total price
-        self.total_price=round(self.total_price,2) #rounding the total price to 2 decimal places
-        print("Total Price: ",self.total_price) #printing the total price
-         
-        print((75*"-").center(75))
-        self.ComeAgain()
+        self.discount() #calling the discount function
         
         
     #calculating the discount
     def discount(self):
-        print("discount")
+        self.add_discount=input("Do you want to add discount? (Y/N): ") #asking the user to add discount
+        self.add_discount=self.add_discount.upper() #converting the input to uppercase
+        if self.add_discount == "Y": 
+            self.discount_percentage=float(input("Enter Discount Percentage: ")) #asking the user to enter the discount percentage
+            result=self.total_bill_price-(self.total_bill_price*(self.discount_percentage/100)) #calculating the total price after discount
+            
+            print(("Total Quantity: ").ljust(20),self.total_quantity,"Items") #printing the total quantity
+            print("Congratulations! You got a discount of ",self.discount_percentage,"%") #printing the discount percentage
+            print(("Total Price before Discount: ").ljust(20),self.total_bill_price) #printing the total price before discount
+            print(("Total Price after Discount: ").ljust(20),result) #printing the total price after discount
+            
+        elif self.add_discount == "N":
+            print(("Total Quantity: ").ljust(20),self.total_quantity,"Items") #printing the total quantity
+            print(("Total Price: ").ljust(20),self.total_bill_price)
+            
+        elif self.add_discount != "Y" or self.add_discount != "N":
+            print("Invalid Input!")
+            self.discount()
+            
+        self.ComeAgain()
+            
             
             
             
@@ -94,7 +110,8 @@ class Billing_System:
     def ComeAgain(self):
         print((75*"=").center(75))
         print(("Thank you for shopping with us!").center(75)) #printing the thank you message
-        
+        print(("If you want to exchange or return any item,").center(75))
+        print(("please bring the bill with you.").center(75)) #printing the exchange or return message
         print(("Please come again!").center(75)) #printing the come again message
         print((5*"*").center(75))
 
