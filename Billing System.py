@@ -44,11 +44,11 @@ class Billing_System:
         self.choice=input("Do you want to add more items? (Y/N): ") #asking the user to add more items
         self.choice=self.choice.upper() #converting the input to uppercase
         if self.choice=='Y':
-            self.add_items()            
+            self.add_items() #calling the add_items function        
         elif self.choice=='N':
-            self.discount()
+            self.discount() #calling the discount function
         elif self.choice!='Y' or self.choice!='N':
-            print("Invalid Input!")
+            print("Invalid Input!") #printing the invalid input message
             self.Addmore() #again asking the user to add more items
         
     #adding items to the list
@@ -60,24 +60,24 @@ class Billing_System:
         
             
     def check_quantity(self):
-            try:
+            try: 
                 quantity = int(input("Enter Quantity: ")) # Convert input to integer
                 self.quantity_list.append(quantity) # Add the quantity to the quantity list
                 self.check_price() # Call the check_price function
-            except ValueError:
-                print("Invalid Input!")
+            except ValueError: # If the input is not an integer
+                print("Invalid Input!") #printing the invalid input message
                 self.check_quantity() # Ask the user to enter the quantity again
 
 
 
     def check_price(self):
-            try:
+            try: 
                 price = float(input("Enter Price: ")) # Convert input to float
                 self.price_list.append(price) # Add the price to the price list
                 self.summery() # Call the summery function
-            except ValueError:
-                print("Invalid Input!")
-                self.check_price()
+            except ValueError: # If the input is not a float
+                print("Invalid Input!") #printing the invalid input message
+                self.check_price() # Ask the user to enter the price again
     
     
     
@@ -92,18 +92,18 @@ class Billing_System:
 
     #calculating the discount
     def discount(self):
-        self.add_discount=input("Do you want to add discount? (Y/N): ") #asking the user to add discount
+        self.add_discount=input("Do you want to add discount for total bill? (Y/N): ") #asking the user to add discount
         self.add_discount=self.add_discount.upper() #converting the input to uppercase
         if self.add_discount == "Y": 
             self.discount_percentage=float(input("Enter Discount Percentage: ")) #asking the user to enter the discount percentage
             self.discount_added() #calling the discount_added function
             
         elif self.add_discount == "N":
-            self.discount_not_added()
+            self.discount_not_added() #calling the discount_not_added function
             
         elif self.add_discount != "Y" or self.add_discount != "N":
-            print("Invalid Input!")
-            self.discount()
+            print("Invalid Input!") #printing the invalid input message
+            self.discount() #again asking the user to add discount
             
             
             
@@ -113,13 +113,13 @@ class Billing_System:
         print("Item Name".ljust(30),"Quantity".ljust(15),"Price".ljust(15),"Total".ljust(15)) #printing the headings
         
         for item,quantity,price,total in zip(self.item_list, self.quantity_list, self.price_list, self.total_price_list): #using for loop to print the items
-            align1=item.ljust(33)
+            align1=item.ljust(33) #aligning the item name
             align2=str(quantity).ljust(12)
             align3=str(price).ljust(12)
             align4=str(total).ljust(15)
-            print(align1,align2,align3,align4)
+            print(align1,align2,align3,align4) #printing the items
             
-        print((75*"-").center(75))
+        print((75*"-").center(75)) #printing 75 '-' in the center of 75 characters
         
         self.total_bill_price= sum(self.total_price_list) #calculating the total price
         self.total_bill_price=round(self.total_bill_price,2) #rounding the total price to 2 decimal places
@@ -141,10 +141,10 @@ class Billing_System:
         
     def discount_not_added(self):
         self.display_bill() #calling the display_bill function
-        print(("Total Quantity: ").ljust(20),self.total_quantity,"Items")
-        print(("Total Price: ").ljust(20),self.total_bill_price)
+        print(("Total Quantity: ").ljust(20),self.total_quantity,"Items") #printing the total quantity
+        print(("Total Price: ").ljust(20),self.total_bill_price) #printing the total price
             
-        self.ComeAgain()
+        self.ComeAgain() #calling the ComeAgain function
         
                 
                 
@@ -154,13 +154,13 @@ class Billing_System:
     def ComeAgain(self):
         print((75*"=").center(75))
         print(("Thank you for shopping with us!").center(75)) #printing the thank you message
-        print(("If you want to exchange or return any item,").center(75))
+        print(("If you want to exchange or return any item,").center(75)) #printing the exchange or return message
         print(("please bring the bill with you.").center(75)) #printing the exchange or return message
         print(("Please come again!").center(75)) #printing the come again message
         print((5*"*").center(75))
 
 
-
-obj = Billing_System() #creating an object
-obj.empty_lists() #calling the empty_lists function
-obj.add_items() #calling the add_items function
+#main program
+call_class = Billing_System() #creating an object
+call_class.empty_lists() #calling the empty_lists function
+call_class.add_items() #calling the add_items function
