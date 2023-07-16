@@ -46,20 +46,68 @@ class Billing_System:
         if self.choice=='Y':
             self.add_items()            
         elif self.choice=='N':
-            self.display_bill()
+            self.discount()
         elif self.choice!='Y' or self.choice!='N':
             print("Invalid Input!")
             self.Addmore() #again asking the user to add more items
         
     #adding items to the list
     def add_items(self):
-        while True: #using while loop to add more items
-            self.item_list.append(input("Enter Item Name: ")) #asking the user to enter the item name
-            self.quantity_list.append(int(input("Enter Quantity: "))) #asking the user to enter the quantity
-            self.price_list.append(float(input("Enter Price: "))) #asking the user to enter the price
+        
+        self.item_list.append(input("Enter Item Name: ")) #asking the user to enter the item name
+        self.check_quantity() #calling the check_quantity function
+        
+        
+            
+    def check_quantity(self):
+            try:
+                quantity = int(input("Enter Quantity: ")) # Convert input to integer
+                self.quantity_list.append(quantity) # Add the quantity to the quantity list
+                self.check_price() # Call the check_price function
+            except ValueError:
+                print("Invalid Input!")
+                self.check_quantity() # Ask the user to enter the quantity again
+
+
+
+    def check_price(self):
+            try:
+                price = float(input("Enter Price: ")) # Convert input to float
+                self.price_list.append(price) # Add the price to the price list
+                self.summery() # Call the summery function
+            except ValueError:
+                print("Invalid Input!")
+                self.check_price()
+    
+    
+    
+            
+    def summery(self):
             self.total_price_list=[a*b for a,b in zip(self.quantity_list,self.price_list)] #calculating the total price
             self.Addmore() #again asking the user to add more items
                 
+                
+
+
+
+    #calculating the discount
+    def discount(self):
+        self.add_discount=input("Do you want to add discount? (Y/N): ") #asking the user to add discount
+        self.add_discount=self.add_discount.upper() #converting the input to uppercase
+        if self.add_discount == "Y": 
+            self.discount_percentage=float(input("Enter Discount Percentage: ")) #asking the user to enter the discount percentage
+            self.discount_added() #calling the discount_added function
+            
+        elif self.add_discount == "N":
+            self.discount_not_added()
+            
+        elif self.add_discount != "Y" or self.add_discount != "N":
+            print("Invalid Input!")
+            self.discount()
+            
+            
+            
+        
     #displaying the bill
     def display_bill(self):
         print("Item Name".ljust(30),"Quantity".ljust(15),"Price".ljust(15),"Total".ljust(15)) #printing the headings
@@ -77,34 +125,30 @@ class Billing_System:
         self.total_bill_price=round(self.total_bill_price,2) #rounding the total price to 2 decimal places
         self.total_quantity= sum(self.quantity_list) #calculating the total quantity
         
-        self.discount() #calling the discount function
         
         
-    #calculating the discount
-    def discount(self):
-        self.add_discount=input("Do you want to add discount? (Y/N): ") #asking the user to add discount
-        self.add_discount=self.add_discount.upper() #converting the input to uppercase
-        if self.add_discount == "Y": 
-            self.discount_percentage=float(input("Enter Discount Percentage: ")) #asking the user to enter the discount percentage
-            result=self.total_bill_price-(self.total_bill_price*(self.discount_percentage/100)) #calculating the total price after discount
-            
-            print(("Total Quantity: ").ljust(20),self.total_quantity,"Items") #printing the total quantity
-            print("Congratulations! You got a discount of ",self.discount_percentage,"%") #printing the discount percentage
-            print(("Total Price before Discount: ").ljust(20),self.total_bill_price) #printing the total price before discount
-            print(("Total Price after Discount: ").ljust(20),result) #printing the total price after discount
-            
-        elif self.add_discount == "N":
-            print(("Total Quantity: ").ljust(20),self.total_quantity,"Items") #printing the total quantity
-            print(("Total Price: ").ljust(20),self.total_bill_price)
-            
-        elif self.add_discount != "Y" or self.add_discount != "N":
-            print("Invalid Input!")
-            self.discount()
+    def discount_added(self):
+        self.display_bill() #calling the display_bill function
+        result=self.total_bill_price-(self.total_bill_price*(self.discount_percentage/100)) #calculating the total price after discount
+        print(("Total Quantity: ").ljust(20),self.total_quantity,"Items") #printing the total quantity
+        print("Congratulations! You got a discount of ",self.discount_percentage,"%") #printing the discount percentage
+        print(("Total Price before Discount: ").ljust(20),self.total_bill_price) #printing the total price before discount
+        print(("Total Price after Discount: ").ljust(20),result) #printing the total price after discount
+        
+        self.ComeAgain()
+        
+        
+        
+    def discount_not_added(self):
+        self.display_bill() #calling the display_bill function
+        print(("Total Quantity: ").ljust(20),self.total_quantity,"Items")
+        print(("Total Price: ").ljust(20),self.total_bill_price)
             
         self.ComeAgain()
-            
-            
-            
+        
+                
+                
+                
             
     #come again        
     def ComeAgain(self):
@@ -120,4 +164,3 @@ class Billing_System:
 obj = Billing_System() #creating an object
 obj.empty_lists() #calling the empty_lists function
 obj.add_items() #calling the add_items function
-obj.display_bill()  #calling the display_bill function
