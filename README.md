@@ -1,8 +1,8 @@
-#Billing System
+# Billing System
 
 Welcome to the Our Billing System! This Python module provides a simple and efficient way to manage billing and generate itemized bills for customers. It allows you to add items, specify quantities, and enter prices, ultimately producing a comprehensive bill with options for discounts.
 
-##Features
+## Features
 
 -User-friendly interface for entering cashier and customer details.
 
@@ -21,7 +21,7 @@ Welcome to the Our Billing System! This Python module provides a simple and effi
 -Support for returning customers, encouraging them to shop with you again.
 
 
-##Usage
+## Usage
 
 -Import the Billing_System class from the BillingSystem module in your Python script.
 
@@ -44,7 +44,7 @@ Welcome to the Our Billing System! This Python module provides a simple and effi
 -Feel free to explore the code and customize it to suit your specific requirements.
 
 
-##Dependencies
+## Dependencies
 
 This module utilizes the following Python libraries:
 
@@ -55,29 +55,32 @@ This module utilizes the following Python libraries:
 -Make sure you have these libraries installed before running the code.
 
 
-##Contributing
+## Contributing
 
 Contributions are welcome! If you have any suggestions, improvements, or bug fixes, please feel free to submit a pull request. Together, let's make the Our Billing System even better!
 
 
-##License
+## License
 
 This project is licensed under the MIT License. You are free to use, modify, and distribute the code as per the terms of the license.
 
 
-##Acknowledgements
+## Acknowledgements
 
 This project was inspired by the need for a simple billing system for small-scale businesses.
 
 Special thanks to the developers and contributors of the Python programming language and related libraries used in this project.
 
-##Contact
+## Contact
 
 For any inquiries or feedback, please contact with us on following social media platforms.
 
 -Linkedin `www.linkedin.com/in/ahzem`
+
 -Facebook `www.facebook.com/mfm.ahzem`
+
 -Twitter `www.twitter.com/_ahzem_`
+
 -Instagram `www.instagram.com/_ahzem_`
 
 Thank you for choosing the Our Billing System! We hope it helps streamline your billing process and enhance the shopping experience for your customers. Happy coding and happy shopping!
