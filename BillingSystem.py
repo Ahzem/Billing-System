@@ -53,9 +53,14 @@ class Billing_System:
         
     #adding items to the list
     def add_items(self):
-        
-        self.item_list.append(input("Enter Item Name: ")) #asking the user to enter the item name
-        self.check_quantity() #calling the check_quantity function
+        itemName=str(input("Enter Item Name: ")) #asking the user to enter the item name
+        if itemName is None or itemName == "": #if the input is null
+            print("Invalid Input!") #printing the invalid input message
+            self.add_items() #calling the add_items function
+        else:
+            self.item_list.append(itemName) #asking the user to enter the item name
+            self.check_quantity() #calling the check_quantity function
+            
         
         
     #checking the quantity and getting the price        
@@ -159,3 +164,7 @@ class Billing_System:
         print(("Please come again!").center(75)) #printing the come again message
         print((5*"*").center(75))
 
+
+class_call=Billing_System() #creating an object for the class
+class_call.empty_lists() #calling the empty_lists function
+class_call.add_items() #calling the add_items function
