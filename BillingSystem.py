@@ -115,7 +115,7 @@ class Billing_System:
         
     #displaying the bill
     def display_bill(self):
-        print("Item Name".ljust(30),"Quantity".ljust(15),"Price".ljust(15),"Total".ljust(15)) #printing the headings
+        print("Item Name".ljust(27),"Quantity".ljust(18),"Price".ljust(15),"Total".ljust(15)) #printing the headings
         
         for item,quantity,price,total in zip(self.item_list, self.quantity_list, self.price_list, self.total_price_list): #using for loop to print the items
             align1=item.ljust(30) #aligning the item name
@@ -136,8 +136,11 @@ class Billing_System:
         self.display_bill() #calling the display_bill function
         result=self.total_bill_price-(self.total_bill_price*(self.discount_percentage/100)) #calculating the total price after discount
         print(("Total Quantity: ").ljust(20),self.total_quantity,"Items") #printing the total quantity
-        print("Congratulations! You got a discount of ",self.discount_percentage,"%") #printing the discount percentage
-        print(("Total Price before Discount: ").ljust(20),self.total_bill_price) #printing the total price before discount
+        print(("Total Price: ").ljust(20),self.total_bill_price) #printing the total price before discount
+        print((45*".").center(75))
+        greet=(f"Congratulations! You got a discount of {self.discount_percentage}%")
+        print(greet.center(75))#printing the discount percentage
+        print((45*".").center(75))
         print(("Total Price after Discount: ").ljust(20),result) #printing the total price after discount
         
         self.ComeAgain()
