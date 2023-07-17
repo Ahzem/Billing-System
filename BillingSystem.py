@@ -53,9 +53,14 @@ class Billing_System:
         
     #adding items to the list
     def add_items(self):
-        
-        self.item_list.append(input("Enter Item Name: ")) #asking the user to enter the item name
-        self.check_quantity() #calling the check_quantity function
+        itemName=str(input("Enter Item Name: ")) #asking the user to enter the item name
+        if itemName is None or itemName == "": #if the input is null
+            print("Invalid Input!") #printing the invalid input message
+            self.add_items() #calling the add_items function
+        else:
+            self.item_list.append(itemName) #asking the user to enter the item name
+            self.check_quantity() #calling the check_quantity function
+            
         
         
     #checking the quantity and getting the price        
@@ -110,7 +115,7 @@ class Billing_System:
         
     #displaying the bill
     def display_bill(self):
-        print("Item Name".ljust(30),"Quantity".ljust(15),"Price".ljust(15),"Total".ljust(15)) #printing the headings
+        print("Item Name".ljust(27),"Quantity".ljust(18),"Price".ljust(15),"Total".ljust(15)) #printing the headings
         
         for item,quantity,price,total in zip(self.item_list, self.quantity_list, self.price_list, self.total_price_list): #using for loop to print the items
             align1=item.ljust(30) #aligning the item name
@@ -131,8 +136,11 @@ class Billing_System:
         self.display_bill() #calling the display_bill function
         result=self.total_bill_price-(self.total_bill_price*(self.discount_percentage/100)) #calculating the total price after discount
         print(("Total Quantity: ").ljust(20),self.total_quantity,"Items") #printing the total quantity
-        print("Congratulations! You got a discount of ",self.discount_percentage,"%") #printing the discount percentage
-        print(("Total Price before Discount: ").ljust(20),self.total_bill_price) #printing the total price before discount
+        print(("Total Price: ").ljust(20),self.total_bill_price) #printing the total price before discount
+        print((45*".").center(75))
+        greet=(f"Congratulations! You got a discount of {self.discount_percentage}%")
+        print(greet.center(75))#printing the discount percentage
+        print((45*".").center(75))
         print(("Total Price after Discount: ").ljust(20),result) #printing the total price after discount
         
         self.ComeAgain()
@@ -159,3 +167,7 @@ class Billing_System:
         print(("Please come again!").center(75)) #printing the come again message
         print((5*"*").center(75))
 
+
+class_call=Billing_System() #creating an object for the class
+class_call.empty_lists() #calling the empty_lists function
+class_call.add_items() #calling the add_items function
