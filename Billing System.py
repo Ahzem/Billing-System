@@ -58,7 +58,7 @@ class Billing_System:
         self.check_quantity() #calling the check_quantity function
         
         
-            
+    #checking the quantity and getting the price        
     def check_quantity(self):
             try: 
                 quantity = int(input("Enter Quantity: ")) # Convert input to integer
@@ -69,7 +69,7 @@ class Billing_System:
                 self.check_quantity() # Ask the user to enter the quantity again
 
 
-
+    #checking the price and getting the total price
     def check_price(self):
             try: 
                 price = float(input("Enter Price: ")) # Convert input to float
@@ -81,7 +81,7 @@ class Billing_System:
     
     
     
-            
+     #calculating the total price       
     def summery(self):
             self.total_price_list=[a*b for a,b in zip(self.quantity_list,self.price_list)] #calculating the total price
             self.Addmore() #again asking the user to add more items
@@ -113,9 +113,9 @@ class Billing_System:
         print("Item Name".ljust(30),"Quantity".ljust(15),"Price".ljust(15),"Total".ljust(15)) #printing the headings
         
         for item,quantity,price,total in zip(self.item_list, self.quantity_list, self.price_list, self.total_price_list): #using for loop to print the items
-            align1=item.ljust(33) #aligning the item name
-            align2=str(quantity).ljust(12)
-            align3=str(price).ljust(12)
+            align1=item.ljust(30) #aligning the item name
+            align2=str(quantity).ljust(15)
+            align3=str(price).ljust(15)
             align4=str(total).ljust(15)
             print(align1,align2,align3,align4) #printing the items
             
@@ -126,7 +126,7 @@ class Billing_System:
         self.total_quantity= sum(self.quantity_list) #calculating the total quantity
         
         
-        
+    #calculating the total price after discount   
     def discount_added(self):
         self.display_bill() #calling the display_bill function
         result=self.total_bill_price-(self.total_bill_price*(self.discount_percentage/100)) #calculating the total price after discount
@@ -138,7 +138,7 @@ class Billing_System:
         self.ComeAgain()
         
         
-        
+    #calculating the total price without discount    
     def discount_not_added(self):
         self.display_bill() #calling the display_bill function
         print(("Total Quantity: ").ljust(20),self.total_quantity,"Items") #printing the total quantity
