@@ -159,8 +159,3 @@ class Billing_System:
         print(("Please come again!").center(75)) #printing the come again message
         print((5*"*").center(75))
 
-
-#main program
-call_class = Billing_System() #creating an object
-call_class.empty_lists() #calling the empty_lists function
-call_class.add_items() #calling the add_items function
