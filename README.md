@@ -1,56 +1,51 @@
-# Billing System
+#Billing System
 
-This is a simple billing system implemented in Python for managing sales transactions in a supermarket. It allows the user to input item details, including name, quantity, and price, and generates a bill with a total quantity and price.
+Welcome to the Our Billing System! This Python module provides a simple and efficient way to manage billing and generate itemized bills for customers. It allows you to add items, specify quantities, and enter prices, ultimately producing a comprehensive bill with options for discounts.
 
-## Features
+##Features
+-User-friendly interface for entering cashier and customer details.
+-Flexible item management, allowing you to add as many items as needed.
+-Error handling to ensure valid inputs for quantities and prices.
+-Automatic calculation of total prices based on quantities and prices entered.
+-Option to apply a discount to the total bill amount.
+-Itemized bill display with detailed information including item names, quantities, prices, and total amounts.
+-Clear and visually appealing formatting of the bill for better readability.
+-Support for returning customers, encouraging them to shop with you again.
 
-- User-friendly interface for entering cashier and customer names.
-- Ability to add multiple items to the bill.
-- Automatic calculation of the total price and quantity.
-- Displaying the bill with item details and totals.
-- Option to add discounts (not implemented yet).
+##Usage
+-Import the Billing_System class from the BillingSystem module in your Python script.
+-Create an instance of the `Billing_System` class.
+-Initialize the necessary lists by calling the `empty_lists()` method.
+-Add items to the bill by calling the `add_items()` method. Enter the item name, quantity, and price when prompted.
+-Continue adding more items or proceed to apply a discount by calling the `discount()` method.
+-If a discount is selected, enter the discount percentage.
+-View the final itemized bill by calling the `display_bill()` method.
+-The bill will be presented with the total quantity, total price (with or without discount), and a thank you message.
+-Encourage customers to return and provide a smooth shopping experience.
+-Feel free to explore the code and customize it to suit your specific requirements.
 
-## Getting Started
+##Dependencies
+This module utilizes the following Python libraries:
 
-To run this billing system on your local machine, follow these steps:
+-`datetime`: for retrieving the current date and time.
+-`date`: for calculating the date.
+-Make sure you have these libraries installed before running the code.
 
-1. Clone the repository:
+##Contributing
+Contributions are welcome! If you have any suggestions, improvements, or bug fixes, please feel free to submit a pull request. Together, let's make the Our Billing System even better!
 
-   ```shell
-   git clone https://github.com/your-username/billing-system.git
-2. Navigate to the project directory:
+##License
+This project is licensed under the MIT License. You are free to use, modify, and distribute the code as per the terms of the license.
 
-### shell
+##Acknowledgements
+This project was inspired by the need for a simple billing system for small-scale businesses.
+Special thanks to the developers and contributors of the Python programming language and related libraries used in this project.
 
-`cd billing-system`
+##Contact
+For any inquiries or feedback, please contact with us on following social media platforms.
+-Linkedin `www.linkedin.com/in/ahzem`
+-Facebook `www.facebook.com/mfm.ahzem`
+-Twitter `www.twitter.com/_ahzem_`
+-Instagram `www.instagram.com/_ahzem_`
 
-3. Run the Python script:
-
-### shell
-
-`python billing_system.py`
-Follow the instructions on the command line interface to enter cashier and customer names, add items to the bill, and view the final bill.
-
-## Usage
-
-i.   Run the script `billing_system.py.`
-
-ii.  Enter the cashier name and customer name when prompted.
-
-iii. Enter the details of each item, including the item name, quantity, and price.
-
-iv.  Repeat step 3 to add more items, or choose not to add more items.
-
-v.   The script will display the final bill with item details, total quantity, and total price.
-
-vi.  The program will then thank the customer and prompt for the next action.
-
-
-## Contributing
-
-Contributions are welcome! If you find any issues or want to enhance this billing system, feel free to submit a pull request.
-
-
-## License
-
-This project is licensed under the `MIT License`.
+Thank you for choosing the Our Billing System! We hope it helps streamline your billing process and enhance the shopping experience for your customers. Happy coding and happy shopping!
