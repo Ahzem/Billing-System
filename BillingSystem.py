@@ -79,7 +79,8 @@ class Billing_System:
     def check_quantity(self):
         try: 
             quantity = int(input("Enter Quantity: ")) # Convert input to integer
-            self.quantity_list.append(quantity) # Add the quantity to the quantity list                self.check_price() # Call the check_price function
+            self.quantity_list.append(quantity) # Add the quantity to the quantity list
+            self.check_price() # Call the check_price function
         except ValueError: # If the input is not an integer
             print("Invalid Input!") #printing the invalid input message
             self.check_quantity() # Ask the user to enter the quantity again
@@ -90,14 +91,19 @@ class Billing_System:
         try: 
             price = float(input("Enter Price: ")) # Convert input to float
             self.price_list.append(price) # Add the price to the price list
-            self.summery() # Call the summery function
+            self.total_price() # Call the summery function
         except ValueError: # If the input is not a float
             print("Invalid Input!") #printing the invalid input message
             self.check_price() # Ask the user to enter the price again
 
 
     #calculating the total price       
-    def summery(self):
+    def total_price(self):
+        '''
+        Calculates the total price of the items by multiplying the quantity and price of each item.
+        Adds the total price to the total_price_list.
+        Calls the Addmore function to ask the user if they want to add more items.
+        '''
         self.total_price_list=[a*b for a,b in zip(self.quantity_list,self.price_list)] #calculating the total price
         self.Addmore() #again asking the user to add more items
 
