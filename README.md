@@ -20,6 +20,10 @@ Welcome to the Our Billing System! This Python module provides a simple and effi
 
 -Support for returning customers, encouraging them to shop with you again.
 
+## Sample Output
+
+![Screenshot 2023-07-19 213842](https://github.com/Ahzem/Billing-System/assets/123859613/74c558e5-c7cc-468e-ad37-1e21007931a8)
+
 
 ## Usage
 
