@@ -22,7 +22,9 @@ Welcome to the Our Billing System! This Python module provides a simple and effi
 
 ## Sample Output
 
-![Screenshot 2023-07-19 213842](https://github.com/Ahzem/Billing-System/assets/123859613/74c558e5-c7cc-468e-ad37-1e21007931a8)
+![Screenshot 2023-07-20 141332](https://github.com/Ahzem/Billing-System/assets/123859613/a6637587-c476-4664-b50f-a1f4a19191f3)
+
+![Screenshot 2023-07-20 141358](https://github.com/Ahzem/Billing-System/assets/123859613/1f320d6c-62bb-4ef0-8d9c-581a80c8f3f6)
 
 
 ## Usage
