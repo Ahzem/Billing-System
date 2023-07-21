@@ -16,15 +16,14 @@ class Billing_System:
 
     #constructor
     def __init__(self):
-        print(("Welcome to the Billing System!").center(75)) #printing the welcome message
-        print(("Please enter the following details:").center(75)) #printing the please enter the following details message
-        print((75*"-").center(75)) #printing 75 '-' in the center of 75 characters
+        print(("Welcome to the 'Building Better Bills'!").center(60)) #printing the welcome message
+        print(("Please enter the following details:").center(60)) #printing the please enter the following details message
+        print((60*"-").center(60)) #printing 60 '-' in the center of 75 characters
         self.cashierName=input("Enter Cashier Name: ") #getting the cashier name
         self.customerName=input("Enter Customer Name: ") #getting the customer name
-        print((75*"-").center(75)) #printing 75 '-' in the center of 75 characters
-        print(("You can now continue with the billing process.").center(75)) #printing the you can now continue with the billing process message
-        print((75*"-").center(75)) #printing 75 '-' in the center of 75 characters
-
+        print((60*"-").center(60)) #printing 60 '-' in the center of 75 characters
+        print(("You can now continue with the billing process.").center(60)) #printing the you can now continue with the billing process message
+        print((60*"-").center(60)) #printing 60 '-' in the center of 75 characters
         
     #creating empty lists
     def empty_lists(self): 
@@ -99,12 +98,12 @@ class Billing_System:
         if self.add_discount == "Y": 
             self.discount_percentage=float(input("Enter Discount Percentage: ")) #asking the user to enter the discount percentage
             print("Generating the bill...") #printing the generating the bill message
-            print((75*"_").center(75)) #printing 75 '_' in the center of 75 characters
+            print((60*"-").center(60)) #printing 60 '-' in the center of 75 characters
             self.discount_added() #calling the discount_added function
             
         elif self.add_discount == "N":
             print("Generating the bill...") #printing the generating the bill message
-            print((75*"_").center(75)) #printing 75 '_' in the center of 75 characters
+            print((60*"_").center(60)) #printing 60 '_' in the center of 75 characters
             self.discount_not_added() #calling the discount_not_added function
             
         elif self.add_discount != "Y" or self.add_discount != "N":
@@ -116,39 +115,38 @@ class Billing_System:
     def display_bill(self):
         
         import datetime #importing datetime module for this class
-
-        shopName=("***Welcome to the ITUM Supermarket***") #shop name
-        shopaddress=("123, Horana Road, Diyagama, Homagama") #shop address
-        shopcontact=("011-1234567") #shop contact number
-
-        print((45*'=').center(75)) #printing 45 '=' in the center of 75 characters
-        print(shopName.center(75)) #printing the shop name in the center of 75 characters
-        print((45*'=').center(75)) 
-        
-        print(shopaddress.center(75)) #printing the shop address in the center of 75 characters
-        print(shopcontact.center(75)) #printing the shop contact number in the center of 75 characters
-        print(len(shopName.center(75))*"-") #printing the length of the shop name in the center of 75 characters
-
         TodayDate = date.today() #getting the current date
         NowTime = datetime.datetime.now() #getting the current time
-        
-        print(f"Date: {TodayDate}".ljust(50), f"Cashier: {self.cashierName[:14].strip()}") #printing the date and the cashier name
-        print(f"Time: {NowTime.strftime('%H:%M:%S')}".ljust(50), f"Customer: {self.customerName[:14].strip()}") #printing the time and the customer name
 
-        print(len(shopName.center(75))*"-") 
+        shopName=("***Welcome to the [Shop name] Supermarket***") #shop name
+        shopaddress=("123, [Street], [City1], [city2]") #shop address
+        shopcontact=("011-1234567") #shop contact number
+
+        print((45*'=').center(60)) #printing 45 '=' in the center of 60 characters
+        print(shopName.center(60)) #printing the shop name in the center of 60 characters
+        print((45*'=').center(60)) 
+        
+        print(shopaddress.center(60)) #printing the shop address in the center of 60 characters
+        print(shopcontact.center(60)) #printing the shop contact number in the center of 60 characters
+        print(len(shopName.center(60))*"-") #printing the length of the shop name in the center of 60 characters
+        
+        print(f"Date: {TodayDate}".ljust(38), f"Cashier: {self.cashierName[:14].strip()}") #printing the date and the cashier name
+        print(f"Time: {NowTime.strftime('%H:%M:%S')}".ljust(38), f"Customer: {self.customerName[:11].strip()}") #printing the time and the customer name
+
+        print(len(shopName.center(60))*"-") 
         
 
         
-        print("Item Name".ljust(27),"Quantity".ljust(18),"Price".ljust(15),"Total".ljust(15)) #printing the headings
+        print("Item Name".ljust(22),"Quantity".ljust(15),"Price".ljust(12),"Total".ljust(12)) #printing the headings
         
         for item,quantity,price,total in zip(self.item_list, self.quantity_list, self.price_list, self.total_price_list): #using for loop to print the items
-            align1=item.ljust(30) #aligning the item name
-            align2=str(quantity).ljust(15)
-            align3=str(price).ljust(15)
-            align4=str(total).ljust(15)
+            align1=item.ljust(24) #aligning the item name
+            align2=str(quantity).ljust(13)
+            align3=str(price).ljust(12)
+            align4=str(total).ljust(12)
             print(align1,align2,align3,align4) #printing the items
             
-        print((75*"-").center(75)) #printing 75 '-' in the center of 75 characters
+        print((60*"-").center(60)) #printing 60 '-' in the center of 75 characters
         
         self.total_bill_price= sum(self.total_price_list) #calculating the total price
         self.total_bill_price=round(self.total_bill_price,2) #rounding the total price to 2 decimal places
@@ -162,11 +160,11 @@ class Billing_System:
         
         print(("Total Quantity: ").ljust(20),self.total_quantity,"Items") #printing the total quantity
         print(("Total Price: ").ljust(20),self.total_bill_price) #printing the total price before discount
-        print((45*".").center(75))
+        print((45*".").center(60))
         
         greet=(f"Congratulations! You got a discount of {self.discount_percentage}%")
-        print(greet.center(75))#printing the discount percentage
-        print((45*".").center(75))
+        print(greet.center(60))#printing the discount percentage
+        print((45*".").center(60))
         print(("Total Price after Discount: ").ljust(20),result) #printing the total price after discount
         
         self.ComeAgain()
@@ -183,29 +181,29 @@ class Billing_System:
 
     #come again        
     def ComeAgain(self):
-        print((75*"=").center(75))
-        print(("Thank you for shopping with us!").center(75)) #printing the thank you message
-        print(("If you want to exchange or return any item,").center(75)) #printing the exchange or return message
-        print(("please bring the bill with you.").center(75)) #printing the exchange or return message
-        print(("Please come again!").center(75)) #printing the come again message
-        print((5*"*").center(75))
+        print((60*"=").center(60))
+        print(("Thank you for shopping with us!").center(60)) #printing the thank you message
+        print(("If you want to exchange or return any item,").center(60)) #printing the exchange or return message
+        print(("please bring the bill with you.").center(60)) #printing the exchange or return message
+        print(("Please come again!").center(60)) #printing the come again message
+        print((6*"*").center(60))
         
-        print((75*"-").center(75)) #printing 75 '-' in the center of 75 characters
+        print((60*"_").center(60)) #printing 60 '_' in the center of 75 characters
         self.Anotherbill() #calling the Anotherbill function
         
     def Anotherbill(self):
         another_bill = input("Do you want to provide another bill? (Y/N): ") #asking the user to provide another bill
         another_bill = another_bill.upper() #converting the input to uppercase
         if another_bill == "Y":
-            print((75*".").center(75)) #printing 75 ',' in the center of 75 characters
+            print((60*".").center(60)) #printing 60 ',' in the center of 60 characters
             print(("You can now continue with the billing process.").center(75)) #printing the you can now continue with the billing process message
-            print((75*".").center(75)) #printing 75 '.' in the center of 75 characters
+            print((60*".").center(60)) #printing 60 '.' in the center of 60 characters
 
             class_call.empty_lists() #calling the empty_lists function
             class_call.add_items() #calling the add_items function
             
         elif another_bill == "N":
-            print("Thank you for using the Billing System!") #printing the thank you message
+            print("Thank you for using the Building Better Bills!") #printing the thank you message
         elif another_bill != "Y" or another_bill != "N":
             print("Invalid Input!") #printing the invalid input message
             self.Anotherbill() #again asking the user to provide another bill
