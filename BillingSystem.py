@@ -16,7 +16,7 @@ class Billing_System:
 
     #constructor
     def __init__(self):
-        print(("Welcome to the Billing System!").center(75)) #printing the welcome message
+        print(("Welcome to the 'Building Better Bills'!").center(75)) #printing the welcome message
         print(("Please enter the following details:").center(75)) #printing the please enter the following details message
         print((75*"-").center(75)) #printing 75 '-' in the center of 75 characters
         self.cashierName=input("Enter Cashier Name: ") #getting the cashier name
@@ -117,8 +117,8 @@ class Billing_System:
         
         import datetime #importing datetime module for this class
 
-        shopName=("***Welcome to the ITUM Supermarket***") #shop name
-        shopaddress=("123, Horana Road, Diyagama, Homagama") #shop address
+        shopName=("***Welcome to the [Shop name] Supermarket***") #shop name
+        shopaddress=("123, [Street], [City1], [city2]") #shop address
         shopcontact=("011-1234567") #shop contact number
 
         print((45*'=').center(75)) #printing 45 '=' in the center of 75 characters
@@ -188,7 +188,7 @@ class Billing_System:
         print(("If you want to exchange or return any item,").center(75)) #printing the exchange or return message
         print(("please bring the bill with you.").center(75)) #printing the exchange or return message
         print(("Please come again!").center(75)) #printing the come again message
-        print((5*"*").center(75))
+        print((6*"*").center(75))
         
         print((75*"-").center(75)) #printing 75 '-' in the center of 75 characters
         self.Anotherbill() #calling the Anotherbill function
@@ -205,7 +205,7 @@ class Billing_System:
             class_call.add_items() #calling the add_items function
             
         elif another_bill == "N":
-            print("Thank you for using the Billing System!") #printing the thank you message
+            print("Thank you for using the Building Better Bills!") #printing the thank you message
         elif another_bill != "Y" or another_bill != "N":
             print("Invalid Input!") #printing the invalid input message
             self.Anotherbill() #again asking the user to provide another bill
