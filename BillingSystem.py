@@ -24,6 +24,8 @@ class Billing_System:
         print((60*"-").center(60)) #printing 60 '-' in the center of 75 characters
         print(("You can now continue with the billing process.").center(60)) #printing the you can now continue with the billing process message
         print((60*"-").center(60)) #printing 60 '-' in the center of 75 characters
+        self.empty_lists() #calling the empty_lists function
+        
         
     #creating empty lists
     def empty_lists(self): 
@@ -32,7 +34,7 @@ class Billing_System:
         self.price_list=[] #creating an empty list for price
         self.total_bill_price=0 #creating an empty list for total price
         self.total_quantity=0 #creating an empty list for total quantity
-
+        self.add_items() #calling the add_items function
            
     #asking the user to add more items        
     def Addmore(self):
@@ -195,12 +197,11 @@ class Billing_System:
         another_bill = input("Do you want to provide another bill? (Y/N): ") #asking the user to provide another bill
         another_bill = another_bill.upper() #converting the input to uppercase
         if another_bill == "Y":
+            self.customerName=input("Enter Customer Name: ") #getting the customer name
             print((60*".").center(60)) #printing 60 ',' in the center of 60 characters
             print(("You can now continue with the billing process.").center(75)) #printing the you can now continue with the billing process message
             print((60*".").center(60)) #printing 60 '.' in the center of 60 characters
-
-            class_call.empty_lists() #calling the empty_lists function
-            class_call.add_items() #calling the add_items function
+            self.empty_lists() #calling the empty_lists function
             
         elif another_bill == "N":
             print("Thank you for using the Building Better Bills!") #printing the thank you message
@@ -209,6 +210,4 @@ class Billing_System:
             self.Anotherbill() #again asking the user to provide another bill
 
 #creating an object for the class
-class_call=Billing_System() #creating an object for the class
-class_call.empty_lists() #calling the empty_lists function
-class_call.add_items() #calling the add_items function
+Billing_System() #creating an object for the class
