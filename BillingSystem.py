@@ -142,7 +142,7 @@ class Billing_System:
         print("Item Name".ljust(22),"Quantity".ljust(15),"Price".ljust(12),"Total".ljust(12)) #printing the headings
         
         for item,quantity,price,total in zip(self.item_list, self.quantity_list, self.price_list, self.total_price_list): #using for loop to print the items
-            align1=item.ljust(24) #aligning the item name
+            align1= item.title().ljust(24) #aligning the item name
             align2=str(quantity).ljust(13)
             align3=str(price).ljust(12)
             align4=str(total).ljust(12)
