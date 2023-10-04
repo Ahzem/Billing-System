@@ -132,13 +132,12 @@ class Billing_System:
         print(shopcontact.center(60)) #printing the shop contact number in the center of 60 characters
         print(len(shopName.center(60))*"-") #printing the length of the shop name in the center of 60 characters
         
-        print(f"Date: {TodayDate}".ljust(38), f"Cashier: {self.cashierName[:14].strip()}") #printing the date and the cashier name
-        print(f"Time: {NowTime.strftime('%H:%M:%S')}".ljust(38), f"Customer: {self.customerName[:11].strip()}") #printing the time and the customer name
+        print(f"Date: {TodayDate}".ljust(38), f"Cashier: {self.cashierName[:14].strip().title()}") #printing the date and the cashier name
+        print(f"Time: {NowTime.strftime('%H:%M:%S')}".ljust(38), f"Customer: {self.customerName[:11].strip().title()}") #printing the time and the customer name
 
         print(len(shopName.center(60))*"-") 
         
 
-        
         print("Item Name".ljust(22),"Quantity".ljust(15),"Price".ljust(12),"Total".ljust(12)) #printing the headings
         
         for item,quantity,price,total in zip(self.item_list, self.quantity_list, self.price_list, self.total_price_list): #using for loop to print the items
