@@ -4,21 +4,21 @@ Welcome to the Our Billing System! This Python module provides a simple and effi
 
 ## Features
 
--User-friendly interface for entering cashier and customer details.
+- User-friendly interface for entering cashier and customer details.
 
--Flexible item management, allowing you to add as many items as needed.
+- Flexible item management, allowing you to add as many items as needed.
 
--Error handling to ensure valid inputs for quantities and prices.
+- Error handling to ensure valid inputs for quantities and prices.
 
--Automatic calculation of total prices based on quantities and prices entered.
+- Automatic calculation of total prices based on quantities and prices entered.
 
--Option to apply a discount to the total bill amount.
+- Option to apply a discount to the total bill amount.
 
--Itemized bill display with detailed information including item names, quantities, prices, and total amounts.
+- Itemized bill display with detailed information including item names, quantities, prices, and total amounts.
 
--Clear and visually appealing formatting of the bill for better readability.
+- Clear and visually appealing formatting of the bill for better readability.
 
--Support for returning customers, encouraging them to shop with you again.
+- Support for returning customers, encouraging them to shop with you again.
 
 ## Sample Output
 
@@ -32,36 +32,36 @@ Welcome to the Our Billing System! This Python module provides a simple and effi
 
 ## Usage
 
--Import the Billing_System class from the BillingSystem module in your Python script.
+- Import the Billing_System class from the BillingSystem module in your Python script.
 
--Create an instance of the `Billing_System` class.
+- Create an instance of the `Billing_System` class.
 
--Initialize the necessary lists by calling the `empty_lists()` method.
+- Initialize the necessary lists by calling the `empty_lists()` method.
 
--Add items to the bill by calling the `add_items()` method. Enter the item name, quantity, and price when prompted.
+- Add items to the bill by calling the `add_items()` method. Enter the item name, quantity, and price when prompted.
 
--Continue adding more items or proceed to apply a discount by calling the `discount()` method.
+- Continue adding more items or proceed to apply a discount by calling the `discount()` method.
 
--If a discount is selected, enter the discount percentage.
+- If a discount is selected, enter the discount percentage.
 
--View the final itemized bill by calling the `display_bill()` method.
+- View the final itemized bill by calling the `display_bill()` method.
 
--The bill will be presented with the total quantity, total price (with or without discount), and a thank you message.
+- The bill will be presented with the total quantity, total price (with or without discount), and a thank you message.
 
--Encourage customers to return and provide a smooth shopping experience.
+- Encourage customers to return and provide a smooth shopping experience.
 
--Feel free to explore the code and customize it to suit your specific requirements.
+- Feel free to explore the code and customize it to suit your specific requirements.
 
 
 ## Dependencies
 
 This module utilizes the following Python libraries:
 
--`datetime`: for retrieving the current date and time.
+- `datetime`: for retrieving the current date and time.
 
--`date`: for calculating the date.
+- `date`: for calculating the date.
 
--Make sure you have these libraries installed before running the code.
+- Make sure you have these libraries installed before running the code.
 
 
 ## Contributing
@@ -84,12 +84,12 @@ Special thanks to the developers and contributors of the Python programming lang
 
 For any inquiries or feedback, please contact with us on following social media platforms.
 
--Linkedin `www.linkedin.com/in/ahzem`
+- Linkedin `www.linkedin.com/in/ahzem`
 
--Facebook `www.facebook.com/mfm.ahzem`
+- Facebook `www.facebook.com/mfm.ahzem`
 
--Twitter `www.twitter.com/_ahzem_`
+- Twitter `www.twitter.com/_ahzem_`
 
--Instagram `www.instagram.com/_ahzem_`
+- Instagram `www.instagram.com/_ahzem_`
 
 Thank you for choosing the Our Billing System! We hope it helps streamline your billing process and enhance the shopping experience for your customers. Happy coding and happy shopping!
