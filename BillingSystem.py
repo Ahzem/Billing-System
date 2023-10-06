@@ -38,8 +38,7 @@ class Billing_System:
            
     #asking the user to add more items        
     def Addmore(self):
-        self.choice=input("Do you want to add more items? (Y/N): ") #asking the user to add more items
-        self.choice=self.choice.upper() #converting the input to uppercase
+        self.choice=input("Do you want to add more items? (Y/N): ").strip().upper() #asking the user to add more items
         if self.choice=='Y':
             self.add_items() #calling the add_items function        
         elif self.choice=='N':
@@ -95,23 +94,45 @@ class Billing_System:
                         
     #calculating the discount
     def discount(self):
-        self.add_discount=input("Do you want to add discount for total bill? (Y/N): ") #asking the user to add discount
-        self.add_discount=self.add_discount.upper() #converting the input to uppercase
+        self.add_discount=input("Do you want to add discount for total bill? (Y/N): ").strip().upper() #asking the user if they want to add discount for total bill
         if self.add_discount == "Y": 
             self.discount_percentage=float(input("Enter Discount Percentage: ")) #asking the user to enter the discount percentage
-            print("Generating the bill...") #printing the generating the bill message
-            print((60*"-").center(60)) #printing 60 '-' in the center of 75 characters
-            self.discount_added() #calling the discount_added function
+            self.loyalty_for_discount() #calling the loyalty_for_discount function
             
         elif self.add_discount == "N":
-            print("Generating the bill...") #printing the generating the bill message
-            print((60*"_").center(60)) #printing 60 '_' in the center of 75 characters
-            self.discount_not_added() #calling the discount_not_added function
+            self.loyalty_for_not_discount() #calling the loyalty_for_not_discount function
             
         elif self.add_discount != "Y" or self.add_discount != "N":
             print("Invalid Input!") #printing the invalid input message
             self.discount() #again asking the user to add discount                 
 
+    #checking the loyalty card holder
+    def loyalty_for_discount(self):
+        self.loyalty_card=input("Is the customer a loyalty card holder? (Y/N): ") #asking the user if the customer is a loyalty card holder
+        self.loyalty_card=self.loyalty_card.strip().upper() #converting the input to uppercase
+        if self.loyalty_card == "Y":
+            self.loyalty_card_id=input("Enter Loyalty Card ID: ") #asking the user to enter the loyalty card id
+            self.loyalty_card = round((self.total_bill_price*0.02),2) #calculating the points earned
+            self.discount_added_for_loyalty() #calling the discount_added function
+        elif self.loyalty_card == "N":
+            self.discount_added_for_not_loyalty() #calling the discount_added function
+        elif self.loyalty_card != "Y" or self.loyalty_card != "N":
+            print("Invalid Input!")
+            self.loyalty_for_discount() #again asking the user if the customer is a loyalty card holder
+
+    def loyalty_for_not_discount(self):
+        self.loyalty_card=input("Is the customer a loyalty card holder? (Y/N): ")
+        self.loyalty_card=self.loyalty_card.strip().upper()
+        if self.loyalty_card == "Y":
+            self.loyalty_card_id=input("Enter Loyalty Card ID: ")
+            self.loyalty_card = round((self.total_bill_price*0.02),2)
+            self.discount_not_added_for_loyalty() #calling the discount_not_added function
+        elif self.loyalty_card == "N":
+            self.discount_not_added_for_not_loyalty() #calling the discount_not_added function
+        elif self.loyalty_card != "Y" or self.loyalty_card != "N":
+            print("Invalid Input!")
+            self.loyalty_for_not_discount() #again asking the user if the customer is a loyalty card holder
+            
 
 #displaying the bill
     def display_bill(self):
@@ -155,7 +176,7 @@ class Billing_System:
 
        
     #calculating the total price after discount   
-    def discount_added(self):
+    def discount_added_for_loyalty(self):
         self.display_bill() #calling the display_bill function
         result=self.total_bill_price-(self.total_bill_price*(self.discount_percentage/100)) #calculating the total price after discount
         
@@ -168,15 +189,49 @@ class Billing_System:
         print((45*".").center(60))
         print(("Total Price after Discount: ").ljust(20),result) #printing the total price after discount
         
+        print((60*"-").center(60)) #printing 60 '_' in the center of 75 characters
+        print(("Loyalty Card Holder").center(60)) #printing the loyalty card holder message
+        print((10*"*").center(60))
+        print("Loyalty Card ID: ",self.loyalty_card_id) #printing the loyalty card id
+        print(("Points Earned for this Bill:").ljust(20),round(self.total_bill_price*0.02,2)) #printing the points earned for this bill
+
         self.ComeAgain()
+        
+    def discount_added_for_not_loyalty(self):
+        self.display_bill() #calling the display_bill function
+        result=self.total_bill_price-(self.total_bill_price*(self.discount_percentage/100))
+        
+        print(("Total Quantity: ").ljust(20),self.total_quantity,"Items") #printing the total quantity
+        print(("Total Price: ").ljust(20),self.total_bill_price) #printing the total price before discount
+        print((45*".").center(60))
+        
+        greet=(f"Congratulations! You got a discount of {self.discount_percentage}%")
+        print(greet.center(60))#printing the discount percentage
+        print((45*".").center(60))
+        print(("Total Price after Discount: ").ljust(20),result) #printing the total price after discount
         
         
     #calculating the total price without discount    
-    def discount_not_added(self):
+    def discount_not_added_for_loyalty(self):
         self.display_bill() #calling the display_bill function
         print(("Total Quantity: ").ljust(20),self.total_quantity,"Items") #printing the total quantity
         print(("Total Price: ").ljust(20),self.total_bill_price) #printing the total price
-            
+        print((60*"_").center(60)) #printing 60 '_' in the center of 75 characters
+        
+        print((60*"-").center(60)) #printing 60 '_' in the center of 75 characters
+        print(("Loyalty Card Holder").center(60))
+        print((10*"*").center(60))
+        print("Loyalty Card ID: ",self.loyalty_card_id) #printing the loyalty card id
+        print(("Points Earned for this Bill:").ljust(20),round(self.total_bill_price*0.02,2))
+
+        self.ComeAgain() #calling the ComeAgain function
+        
+        
+    def discount_not_added_for_not_loyalty(self):
+        self.display_bill()
+        print(("Total Quantity: ").ljust(20),self.total_quantity,"Items") #printing the total quantity
+        print(("Total Price: ").ljust(20),self.total_bill_price) #printing the total price
+        
         self.ComeAgain() #calling the ComeAgain function
         
 
@@ -193,8 +248,7 @@ class Billing_System:
         self.Anotherbill() #calling the Anotherbill function
         
     def Anotherbill(self):
-        another_bill = input("Do you want to provide another bill? (Y/N): ") #asking the user to provide another bill
-        another_bill = another_bill.upper() #converting the input to uppercase
+        another_bill = input("Do you want to provide another bill? (Y/N): ").strip().upper() #asking the user if they want to provide another bill
         if another_bill == "Y":
             self.customerName=input("Enter Customer Name: ") #getting the customer name
             print((60*".").center(60)) #printing 60 ',' in the center of 60 characters
