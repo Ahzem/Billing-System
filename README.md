@@ -20,6 +20,11 @@ Welcome to the Our Billing System! This Python module provides a simple and effi
 
 - Support for returning customers, encouraging them to shop with you again.
 
+### New Features
+
+- **Flexible Loyalty Program**: Reward loyal customers with points based on their total bill amount.
+
+
 ## Sample Output
 
 ### With Discount
@@ -66,7 +71,7 @@ This module utilizes the following Python libraries:
 
 ## Contributing
 
-Contributions are welcome! If you have any suggestions, improvements, or bug fixes, please feel free to submit a pull request. Together, let's make the Our Billing System even better!
+Contributions are welcome! If you have any suggestions, improvements, or bug fixes, please feel free to submit a pull request. Together, let's make Our Billing System even better! Check out our [Contributing Guidelines](CONTRIBUTING.md) for details.
 
 
 ## License
