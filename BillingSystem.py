@@ -78,7 +78,7 @@ class Billing_System:
     def check_price(self):
         try: 
             price = float(input("Enter Price: ")) # Convert input to float
-            if price <= 0: # Check if the input is positive
+            if price < 0: # Check if the input is positive
                 print("Invalid Input! Price should be a positive number.")
                 self.check_price() # Ask the user to enter the price again
             else:
@@ -87,9 +87,17 @@ class Billing_System:
         except (ValueError, TypeError, ZeroDivisionError): # If the input is not a float or negative
             print("Invalid Input! Price should be a positive number.") #printing the invalid input message
             self.check_price() # Ask the user to enter the price again
-
-
-    #calculating the total price       
+            
+    def price_zero(self):
+        for price in self.price_list:
+            if price == 0:
+                item_name=self.item_list[self.price_list.index(price)]
+                greet_for_free=(f"Congratulations! You got {self.quantity_list[self.price_list.index(price)]} {item_name.title()} for free!")
+                print(greet_for_free.center(60))
+            else:
+                pass
+    
+    
     def total_price(self):
         '''
         Calculates the total price of the items by multiplying the quantity and price of each item.
@@ -192,6 +200,8 @@ class Billing_System:
         print(("Total Price: ").ljust(20),self.total_bill_price) #printing the total price before discount
         print((45*".").center(60))
         
+        self.price_zero()
+        
         greet=(f"Congratulations! You got a discount of {self.discount_percentage}%")
         print(greet.center(60))#printing the discount percentage
         print((45*".").center(60))
@@ -202,6 +212,7 @@ class Billing_System:
         print((10*"*").center(60))
         print("Loyalty Card ID: ",self.loyalty_card_id) #printing the loyalty card id
         print(("Points Earned for this Bill:").ljust(20),round(self.total_bill_price*0.02,2)) #printing the points earned for this bill
+        print((60*"=").center(60)) #printing 60 '=' in the center of 60 characters
 
         self.ComeAgain()
         
@@ -213,10 +224,13 @@ class Billing_System:
         print(("Total Price: ").ljust(20),self.total_bill_price) #printing the total price before discount
         print((45*".").center(60))
         
+        self.price_zero()
+        
         greet=(f"Congratulations! You got a discount of {self.discount_percentage}%")
         print(greet.center(60))#printing the discount percentage
         print((45*".").center(60))
         print(("Total Price after Discount: ").ljust(20),result) #printing the total price after discount
+        print((60*"=").center(60)) #printing 60 '=' in the center of 60 characters
         
         
     #calculating the total price without discount    
@@ -224,13 +238,15 @@ class Billing_System:
         self.display_bill() #calling the display_bill function
         print(("Total Quantity: ").ljust(20),self.total_quantity,"Items") #printing the total quantity
         print(("Total Price: ").ljust(20),self.total_bill_price) #printing the total price
-        print((60*"_").center(60)) #printing 60 '_' in the center of 75 characters
-        
         print((60*"-").center(60)) #printing 60 '_' in the center of 75 characters
+        
+        self.price_zero()
+        
         print(("Loyalty Card Holder").center(60))
         print((10*"*").center(60))
         print("Loyalty Card ID: ",self.loyalty_card_id) #printing the loyalty card id
         print(("Points Earned for this Bill:").ljust(20),round(self.total_bill_price*0.02,2))
+        print((60*"=").center(60)) #printing 60 '=' in the center of 60 characters
 
         self.ComeAgain() #calling the ComeAgain function
         
@@ -239,13 +255,16 @@ class Billing_System:
         self.display_bill()
         print(("Total Quantity: ").ljust(20),self.total_quantity,"Items") #printing the total quantity
         print(("Total Price: ").ljust(20),self.total_bill_price) #printing the total price
+        print((60*"_").center(60))
+        
+        self.price_zero()
+        print((60*"=").center(60)) #printing 60 '=' in the center of 60 characters
         
         self.ComeAgain() #calling the ComeAgain function
         
 
     #come again        
     def ComeAgain(self):
-        print((60*"=").center(60))
         print(("Thank you for shopping with us!").center(60)) #printing the thank you message
         print(("If you want to exchange or return any item,").center(60)) #printing the exchange or return message
         print(("please bring the bill with you.").center(60)) #printing the exchange or return message
