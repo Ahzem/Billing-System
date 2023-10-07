@@ -63,10 +63,14 @@ class Billing_System:
     def check_quantity(self):
         try: 
             quantity = int(input("Enter Quantity: ")) # Convert input to integer
-            self.quantity_list.append(quantity) # Add the quantity to the quantity list
-            self.check_price() # Call the check_price function
-        except ValueError: # If the input is not an integer
-            print("Invalid Input!") #printing the invalid input message
+            if quantity <= 0: # Check if the input is positive
+                print("Invalid Input! Quantity should be a positive integer.")
+                self.check_quantity() # Ask the user to enter the quantity again
+            else:
+                self.quantity_list.append(quantity) # Add the quantity to the quantity list
+                self.check_price() # Call the check_price function
+        except (ValueError, TypeError, ZeroDivisionError): # If the input is not an integer or negative
+            print("Invalid Input! Quantity should be a positive integer.") #printing the invalid input message
             self.check_quantity() # Ask the user to enter the quantity again
 
 
@@ -74,10 +78,14 @@ class Billing_System:
     def check_price(self):
         try: 
             price = float(input("Enter Price: ")) # Convert input to float
-            self.price_list.append(price) # Add the price to the price list
-            self.total_price() # Call the summery function
-        except ValueError: # If the input is not a float
-            print("Invalid Input!") #printing the invalid input message
+            if price <= 0: # Check if the input is positive
+                print("Invalid Input! Price should be a positive number.")
+                self.check_price() # Ask the user to enter the price again
+            else:
+                self.price_list.append(price) # Add the price to the price list
+                self.total_price() # Call the summery function
+        except (ValueError, TypeError, ZeroDivisionError): # If the input is not a float or negative
+            print("Invalid Input! Price should be a positive number.") #printing the invalid input message
             self.check_price() # Ask the user to enter the price again
 
 
