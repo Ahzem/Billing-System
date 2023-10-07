@@ -89,12 +89,12 @@ Special thanks to the developers and contributors of the Python programming lang
 
 For any inquiries or feedback, please contact with us on following social media platforms.
 
-- Linkedin `www.linkedin.com/in/ahzem`
+- [Linkedin](www.linkedin.com/in/ahzem)
 
-- Facebook `www.facebook.com/mfm.ahzem`
+- [Facebook](www.facebook.com/mfm.ahzem)
 
-- Twitter `www.twitter.com/_ahzem_`
+- [Twitter](www.twitter.com/_ahzem_)
 
-- Instagram `www.instagram.com/_ahzem_`
+- [Instagram](www.instagram.com/_ahzem_)
 
 Thank you for choosing the Our Billing System! We hope it helps streamline your billing process and enhance the shopping experience for your customers. Happy coding and happy shopping!
